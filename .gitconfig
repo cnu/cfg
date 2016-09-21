@@ -1,0 +1,64 @@
+[user]
+	name = Srinivasan R
+	email = srinivasanr@gmail.com
+[core]
+	excludesfile = /Users/cnu/.gitignore_global
+	editor = /usr/local/bin/vim
+	quotepath = false
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	df = diff
+	lg = log -p
+	cia = commit --amend
+	sb = show-branch
+	cp = cherry-pick
+	staged = diff --cached
+	rb = rebase
+	rbc = rebase --continue
+	rbs = rebase --skip
+	rl = reflog
+	rs = remote show
+	rt = remote
+	ru = remote update
+	rp = remote prune
+	sm = submodule
+	ignore = update-index --assume-unchanged
+	no-ignore = update-index --no-assume-unchanged
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	view = !gitk
+	lg1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%cr)%C(reset) %C(white)%s%C(reset) %C(bold white)— %cn%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+	lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%cD%C(reset) %C(bold green)(%cr)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %cn%C(reset)' --abbrev-commit
+	lg = !"git lg1"
+	switch = !legit switch \"$@\"
+	branches = !legit branches
+	sprout = !legit sprout \"$@\"
+	unpublish = !legit unpublish \"$@\"
+	harvest = !legit harvest \"$@\"
+	sync = !legit sync \"$@\"
+	publish = !legit publish \"$@\"
+	graft = !legit graft \"$@\"
+	webui = !/Users/cnu/.git-webui/release/libexec/git-core/git-webui
+    branch-cleanup = !sh -c 'git branch --merged | grep -v master | xargs git branch -d && git remote prune origin'
+[color]
+  ui = auto
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[diff]
+	tool = diffmerge
+[difftool "diffmerge"]
+	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+[merge]
+	tool = diffmerge
+[mergetool "diffmerge"]
+	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+	trustExitCode = true
+[webui]
+	autoupdate = true
