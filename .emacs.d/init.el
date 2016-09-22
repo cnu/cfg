@@ -43,6 +43,18 @@
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 ;(elpy-use-ipython)
 
+(require 'powerline)
+(powerline-default-theme)
+
+(require 'smooth-scrolling)
+(smooth-scrolling-mode 1)
+
+(add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'elpy-mode-hook #'rainbow-deliemmiters-mode)
+
+(require 'symon)
+(symon-mode)
+
 ;; init.el ends here
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -51,7 +63,9 @@
  ;; If there is more than one, they won't work right.
  '(horizontal-scroll-bar-mode t)
  '(menu-bar-mode t)
- '(package-selected-packages (quote (material-theme better-defaults)))
+ '(package-selected-packages
+   (quote
+    (symon project-explorer rainbow-delimiters smooth-scrolling ansible org material-theme better-defaults)))
  '(scroll-bar-mode (quote right))
  '(tool-bar-mode t))
 (custom-set-faces
